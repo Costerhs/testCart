@@ -1,0 +1,25 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 30%;
+    background-color: #00C65E;
+    border-radius: 10px;
+    left: 40%;
+    padding: 20px 40px;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.modal img {
+    width: 30px;
+    height: 30px;
+}
+
+.modal button {
+    position: absolute;
+    color: white;
+    font-size: 15px;
+    top: 4px;
+    right: 7px;
+}

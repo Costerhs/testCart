@@ -1,25 +1,51 @@
 import addBasket from "./addBasket.js";
+let paginationNum = 1;
+
 
 const showCard = async (filterData) => {
     let data = [];
+
     await fetch('assets/products.json')
         .then(response => response.json())
         .then(datas => data = datas)
 
     const list = document.querySelector('.products__list')
+    const productBtnContainer = document.querySelector('.products__more-btn')
     list.innerHTML = ''
 
     if (filterData) {
-        data.filter(elem => filterData.includes(String(elem.brand))).map(el => {
+        let filtData = data.filter(elem => filterData.includes(String(elem.brand)))
+        filtData.slice(0, paginationNum * 6).map(el => {
             createCard(el, list)
         })
-        console.log(filterData)
+        paginationBtn(productBtnContainer, filtData.length, paginationNum * 6, filterData)
     } else {
-        data.map(el => {
+        data.slice(0, paginationNum * 6).map(el => {
             createCard(el, list)
         })
+        paginationBtn(productBtnContainer, data.length, paginationNum * 6)
     }
     addBasket()
+}
+
+export default showCard;
+
+const paginationBtn = (div, length, num, filterData) => {
+    const button = document.createElement('button');
+    
+    if (num < length) {
+        div.style.display = 'block'
+        button.classList.add('products__more');
+        button.innerText = 'Больше';
+
+        div.append(button);
+        button.addEventListener('click', () => {
+            paginationNum += 1
+            showCard(filterData)
+        })
+    } else {
+        div.style.display = 'none'
+    }
 }
 
 const createCard = (product, list) => {
@@ -57,4 +83,3 @@ const createCard = (product, list) => {
 
     list.appendChild(card)
 }
-export default showCard

@@ -33,7 +33,7 @@ const createBrand = (data, list) => {
     label.appendChild(input);
     label.appendChild(textNode);
 
-    list.prepend(label);
+    list?.prepend(label);
 }
 
 export default showBrand;

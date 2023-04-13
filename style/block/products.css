@@ -1,5 +1,6 @@
 .products {
     margin-top: 20px;
+    position: absolute;
 }
 .products__list {
     display: flex;
@@ -12,6 +13,16 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 20px;
+}
+.products__more  {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #00C65E;
+    margin-top:10px;
 }
 @media (max-width:568px) {
     .products .container {

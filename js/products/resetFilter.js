@@ -4,7 +4,7 @@ const resetFilter = () => {
     const resetBtn = document.querySelector('.reset-button')
     const allBrand = document.querySelectorAll('.products__inp')
 
-    resetBtn.addEventListener('click', () => {
+    resetBtn?.addEventListener('click', () => {
         Array.from(allBrand).map(el => {
             el.checked = false
         })
