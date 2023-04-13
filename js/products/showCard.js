@@ -32,7 +32,7 @@ export default showCard;
 
 const paginationBtn = (div, length, num, filterData) => {
     const button = document.createElement('button');
-    
+
     if (num < length) {
         div.style.display = 'block'
         button.classList.add('products__more');
@@ -83,3 +83,5 @@ const createCard = (product, list) => {
 
     list.appendChild(card)
 }
+
+

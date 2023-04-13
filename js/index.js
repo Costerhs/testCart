@@ -10,7 +10,6 @@ import spa from './spa/spa.js'
 
 if (!getLocalBasket()) {
     setLocalBasket({})
-        .log('sda')
 }
 showBasketProducts()
 setPrice()
