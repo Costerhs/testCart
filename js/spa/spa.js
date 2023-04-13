@@ -1,3 +1,5 @@
+import showBasketProducts from '../basket/showBasketProducts.js'
+
 const spa = () => {
     const main = document.querySelector('.head__logo');
     const basketBtn = document.querySelector('.head__basket');
@@ -14,14 +16,18 @@ const spa = () => {
     }
 
     basketBtn.addEventListener('click', (e) => {
-        const currentUrl = window.location.href;
-        const newUrl = currentUrl + 'basket.html';
-        const title = '';
-        const state = {};
+        if (!window.location.href.includes('basket.html')) {
+            const currentUrl = window.location.href;
+            const newUrl = currentUrl + 'basket.html';
+            const title = '';
+            const state = {};
 
-        window.history.pushState(state, title, newUrl);
+            window.history.pushState(state, title, newUrl);
+        }
+
         products.style.display = 'none';
         basket.style.display = 'block';
+        showBasketProducts()
     })
 
     main.addEventListener('click', (e) => {
